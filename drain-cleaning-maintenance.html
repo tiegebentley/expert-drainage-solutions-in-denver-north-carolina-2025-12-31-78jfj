@@ -98,7 +98,13 @@
 
             <!-- Desktop Menu -->
             <div class="hidden md:flex items-center gap-8">
-                <a href="index.html#features" class="text-gray-700 hover:text-[#5B4BFF] transition-colors duration-300 font-medium">Features</a>
+                <div class="relative group">
+                <a href="services.html" class="text-gray-700 hover:text-[#5B4BFF] transition-colors duration-300 font-medium flex items-center gap-1">Services<i class="fas fa-chevron-down text-sm"></i></a>
+                <div class="absolute left-0 mt-0 w-48 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                  <a href="services.html" class="block px-4 py-3 text-gray-700 hover:text-[#5B4BFF] hover:bg-[#EEF0FF] transition-colors duration-300 font-medium rounded-t-lg">All Services</a>
+                  <a href="drain-cleaning-maintenance.html" class="block px-4 py-3 text-gray-700 hover:text-[#5B4BFF] hover:bg-[#EEF0FF] transition-colors duration-300 font-medium border-t border-gray-200 rounded-b-lg">Drain Cleaning & Maintenance</a>
+                </div>
+              </div>
                 <a href="index.html#benefits" class="text-gray-700 hover:text-[#5B4BFF] transition-colors duration-300 font-medium">Benefits</a>
                 <a href="index.html#testimonials" class="text-gray-700 hover:text-[#5B4BFF] transition-colors duration-300 font-medium">Testimonials</a>
                 <a href="index.html#faq" class="text-gray-700 hover:text-[#5B4BFF] transition-colors duration-300 font-medium">FAQ</a>
@@ -114,7 +120,13 @@
             <!-- Mobile Menu -->
             <div class="mobile-menu hidden absolute top-full left-0 right-0 bg-white border-t border-gray-200 md:hidden">
                 <div class="px-8 py-6 flex flex-col gap-4">
-                    <a href="index.html#features" class="text-gray-700 hover:text-[#5B4BFF] transition-colors duration-300 font-medium py-2">Features</a>
+                    <div class="relative">
+                    <button class="mobile-services-toggle w-full text-left text-gray-700 hover:text-[#5B4BFF] transition-colors duration-300 font-medium py-2 flex items-center justify-between">Services<i class="fas fa-chevron-down text-sm"></i></button>
+                    <div class="mobile-services-menu hidden ml-4 mt-2 space-y-2 border-l-2 border-[#EEF0FF] pl-4">
+                      <a href="services.html" class="block text-gray-700 hover:text-[#5B4BFF] transition-colors duration-300 font-medium py-2">All Services</a>
+                      <a href="drain-cleaning-maintenance.html" class="block text-gray-700 hover:text-[#5B4BFF] transition-colors duration-300 font-medium py-2">Drain Cleaning & Maintenance</a>
+                    </div>
+                  </div>
                     <a href="index.html#benefits" class="text-gray-700 hover:text-[#5B4BFF] transition-colors duration-300 font-medium py-2">Benefits</a>
                     <a href="index.html#testimonials" class="text-gray-700 hover:text-[#5B4BFF] transition-colors duration-300 font-medium py-2">Testimonials</a>
                     <a href="index.html#faq" class="text-gray-700 hover:text-[#5B4BFF] transition-colors duration-300 font-medium py-2">FAQ</a>
@@ -739,6 +751,20 @@
                             icon.classList.add('fa-bars');
                         }
                     });
+                });
+            }
+
+            // Mobile Services Dropdown Toggle
+            const mobileServicesToggle = document.querySelector('.mobile-services-toggle');
+            const mobileServicesMenu = document.querySelector('.mobile-services-menu');
+            
+            if (mobileServicesToggle && mobileServicesMenu) {
+                mobileServicesToggle.addEventListener('click', () => {
+                    mobileServicesMenu.classList.toggle('hidden');
+                    const icon = mobileServicesToggle.querySelector('i');
+                    if (icon) {
+                        icon.classList.toggle('rotate-180');
+                    }
                 });
             }
 
